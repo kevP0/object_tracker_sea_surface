@@ -13,7 +13,8 @@ DATASETS = {}
 
 # Fill all available datasets, change here to modify / add new datasets.
 for split in ['TRAIN', 'TEST', 'ALL', '01', '02', '03', '04', '05',
-              '06', '07', '08', '09', '10', '11', '12', '13', '14']:
+            '06', '07', '08', '09', '10', '11', '12', '13', '14',
+            '15', '16', '17', '18', '19', '20']:
     for dets in ['DPM', 'FRCNN', 'SDP', 'ALL']:
         name = f'MOT17-{split}'
         if dets:
@@ -21,13 +22,11 @@ for split in ['TRAIN', 'TEST', 'ALL', '01', '02', '03', '04', '05',
         DATASETS[name] = (
             lambda kwargs, split=split, dets=dets: MOT17Wrapper(split, dets, **kwargs))
 
-
 for split in ['TRAIN', 'TEST', 'ALL', '01', '02', '03', '04', '05',
               '06', '07', '08']:
     name = f'MOT20-{split}'
     DATASETS[name] = (
         lambda kwargs, split=split: MOT20Wrapper(split, **kwargs))
-
 
 for split in ['TRAIN', 'TEST', 'ALL', '01', '02', '05', '06', '07', '09', '11', '12']:
     name = f'MOTS20-{split}'
@@ -36,6 +35,9 @@ for split in ['TRAIN', 'TEST', 'ALL', '01', '02', '05', '06', '07', '09', '11', 
 
 DATASETS['DEMO'] = (lambda kwargs: [DemoSequence(**kwargs), ])
 
+for split in [str(i) for i in range(0, 21)]:
+    name = f'video_{split}'
+    DATASETS[name] = (lambda kwargs: [DemoSequence(**kwargs), ])
 
 class TrackDatasetFactory:
     """A central class to manage the individual dataset loaders.

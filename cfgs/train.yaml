@@ -96,13 +96,18 @@ coco_panoptic_path: null
 mot_path_train: data/MOT17
 mot_path_val: data/MOT17
 crowdhuman_path: data/CrowdHuman
+dronesmall_path: data/drone_small
+drone_path: data/drone
 # allows for joint training of mot and crowdhuman/coco_person with the `mot_crowdhuman`/`mot_coco_person` dataset
 crowdhuman_train_split: null
 coco_person_train_split: null
 coco_and_crowdhuman_prev_frame_rnd_augs: 0.2
 coco_min_num_objects: 0
+# img_transform:
+#   max_size: 1333
+#   val_width: 800
 img_transform:
-  max_size: 1333
+  max_size: 800
   val_width: 800
 # Miscellaneous
 # path where to save, empty for no saving

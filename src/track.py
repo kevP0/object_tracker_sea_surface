@@ -24,6 +24,7 @@ mm.lap.default_solver = 'lap'
 ex = sacred.Experiment('track')
 ex.add_config('cfgs/track.yaml')
 ex.add_named_config('reid', 'cfgs/track_reid.yaml')
+ex.add_named_config('drone_small', 'cfgs/track_drone_small.yaml')
 
 
 @ex.automain
